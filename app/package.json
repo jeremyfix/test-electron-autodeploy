@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "Jeremy Fix",
-  "license": "Apache License 2.0",
+  "license": "Apache-2.0",
   "devDependencies": {
     "electron": "^13.1.9",
     "electron-builder": "^22.11.7"
