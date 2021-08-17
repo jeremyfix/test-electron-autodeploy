@@ -13,3 +13,4 @@ For testing the app, you simply :
 	yarn start
 
 The app has been developed following the book "Electron project: build over 9 cross-platform desktop applications from scratch"
+
