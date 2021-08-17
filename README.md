@@ -35,3 +35,5 @@ For example, when ran on the mac os image, we get that kind of outputs :
 ## My notes
 
 for publishing on github, I did generate a personnal access token that I registered in the settings of the repo on travis as `GH_TOKEN` env variable. This is detected by electron-builder and used to post the releases.
+
+see also https://medium.com/@johndyer24/creating-and-deploying-an-auto-updating-electron-app-for-mac-and-windows-using-electron-builder-6a3982c0cee6
