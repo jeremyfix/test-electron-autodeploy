@@ -35,7 +35,7 @@ script:
         /bin/bash -c "sudo snap install snapcraft --classic; yarn --link-duplicates --pure-lockfile && yarn release --linux --win"
     else
       yarn release
-      find dists  # List the content
+      find .  # List the content
     fi
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
