@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "DEBUG=true electron ."
+    "start": "DEBUG=true electron .",
+	"release": "electron-builder build"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Jeremy Fix",
+  "license": "Apache License 2.0",
   "devDependencies": {
     "electron": "^13.1.9",
     "electron-builder": "^22.11.7"
