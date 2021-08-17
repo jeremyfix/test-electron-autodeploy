@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "DEBUG=true electron .",
-	"release": "electron-builder build"
+	"release": "electron-builder build --publish always"
   },
   "keywords": [],
   "author": "Jeremy Fix",
@@ -18,5 +18,12 @@
   },
   "dependencies": {
     "simplemde": "^1.11.2"
+  },
+  "build": {
+	  "publish": {
+		"provider": "github",
+		"owner": "jeremyfix",
+		"repo": "test-electron-autodeploy"
+	  }
   }
 }
