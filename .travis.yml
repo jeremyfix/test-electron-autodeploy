@@ -1,3 +1,6 @@
+before_install:
+    - cd app
+
 matrix:
   include:
     - os: osx
