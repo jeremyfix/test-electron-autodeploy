@@ -10,6 +10,7 @@
   },
   "keywords": [],
   "author": "Jeremy Fix",
+  "description": "A simple Markdown editor app to test multi-platform dev",
   "license": "Apache-2.0",
   "devDependencies": {
     "electron": "^13.1.9",
