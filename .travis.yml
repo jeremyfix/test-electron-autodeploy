@@ -36,4 +36,4 @@ before_cache:
 
 branches:
   only:
-     - master
+     - main
