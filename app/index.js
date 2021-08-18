@@ -33,7 +33,7 @@ autoUpdater.on('update-available', (info) => {
 	sendStatusToWindow('Update available.');
 })
 autoUpdater.on('update-not-available', (info) => {
-	sendStatusToWindow('Update not available.');
+	sendStatusToWindow('No new update available. You use the latest application.');
 })
 autoUpdater.on('error', (err) => {
 	sendStatusToWindow('Error in auto-updater. ' + err);
