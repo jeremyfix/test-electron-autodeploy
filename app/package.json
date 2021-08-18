@@ -24,6 +24,12 @@
 	  "url": "https://github.com/jeremyfix/test-electron-autodeploy"
   },
   "build": {
+	  "productName": "MyMarkdowneditor",
+	  "linux": {
+		"target": "AppImage",
+		"artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+		"category": "Utility" 
+	  },
 	  "publish": {
 		"provider": "github",
 		"owner": "jeremyfix",
