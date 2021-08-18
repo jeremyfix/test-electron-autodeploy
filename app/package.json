@@ -42,7 +42,7 @@
 		},
 		"linux": {
 			"target": "AppImage",
-			"artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+			"artifactName": "${productName}-${os}-${arch}.${ext}",
 			"category": "Utility",
 			"icon": "../build/icons/icon.png"
 		},
