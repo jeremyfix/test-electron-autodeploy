@@ -37,20 +37,8 @@ For testing the app, you simply :
 
 The app has been developed following the book "Electron project: build over 9 cross-platform desktop applications from scratch"
 
-## Building with Travis
+## Building with Github actions
 
-electron-builder will build the bundles, by default in the `app/dist` directory.
+Building the packages and providing draft releases is done with github actions especially the [samuelmeuli/action-electron-builder](https://github.com/samuelmeuli/action-electron-builder/) GitHub Action.
 
-For example, when ran on the mac os image, we get that kind of outputs :
-
-```
-./dist
-./dist/MyMarkdownEditor-1.0.0-mac.zip
-./dist/builder-debug.yml
-./dist/MyMarkdownEditor-1.0.0.dmg
-./dist/mac
-./dist/mac/MyMarkdownEditor.app
-./dist/mac/MyMarkdownEditor.app/Contents
-./dist/mac/MyMarkdownEditor.app/Contents/MacOS
-[...]
-```
+That's the GitHub action which is automatically building the app and pushing the assets in a draft release. The only thing you have to do at the end is validate the release.
