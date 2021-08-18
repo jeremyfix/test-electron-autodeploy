@@ -27,23 +27,23 @@
 		"productName": "MyMarkdowneditor",
 		"files": [
 			"**/*",
-			"build/icons/icon*"
+			"../build/icons/icon*"
 		],
 		"mac": {
 			"category": "public.app-category.developer-tools",
 			"artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
-			"icon": "build/icons/icon.icns",
+			"icon": "../build/icons/icon.icns",
 			"hardenedRuntime": true
 		},
 		"win": {
 			"artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
-			"icon": "build/icons/icon.ico"
+			"icon": "../build/icons/icon.ico"
 		},
 		"linux": {
 			"target": "AppImage",
 			"artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
 			"category": "Utility",
-			"icon": "build/icons/icon.png"
+			"icon": "../build/icons/icon.png"
 		},
 		"publish": {
 			"provider": "github",
