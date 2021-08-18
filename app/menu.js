@@ -62,7 +62,7 @@ const template = [
 	}
 ];
 
-if (process.platform == 'linux') {
+if (process.platform == 'darwin') {
 	template.unshift({
 		label: app.getName(),
 		submenu: [

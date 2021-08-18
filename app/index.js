@@ -1,8 +1,13 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const menu = require('./menu');
 const path = require('path');
+const { autoUpdater } = require('electron-updater');
 
 let window;
+
+app.on('ready', function()  {
+	autoUpdater.checkForUpdatesAndNotify();
+});
 
 app.on('ready', () => {
 	window = new BrowserWindow({
@@ -14,6 +19,8 @@ app.on('ready', () => {
 	});
 	window.loadFile('index.html');
 	window.openDevTools();
+
+	console.log(`Running version ${app.getVersion()}`);
 });
 
 Menu.setApplicationMenu(menu);
