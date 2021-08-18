@@ -20,6 +20,8 @@
 
 		We are running the application version <b id="app-version"></b>
 
+		Updater status : <div id="status"></div>
+
 		<script>
 			let editor = new SimpleMDE({
 				element: document.getElementById("editor")
@@ -41,10 +43,15 @@ window.api.receive('load', function onload(event, arg) {
 	editor.value(arg);
 });
 
-window.api.send('version', '');
 window.api.receive('version', function onversion(event, arg) {
 	let element = document.getElementById("app-version");
 	element.innerHTML = arg.version;
+});
+
+window.api.receive('updater-status', function onstatus(event, arg) {
+	let element = document.getElementById("status");
+	console.log(`Updating content of status ${arg}`);
+	element.innerHTML = arg;
 });
 		</script>
 	</body>

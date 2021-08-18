@@ -4,10 +4,38 @@ const path = require('path');
 const { autoUpdater } = require('electron-updater');
 
 let window;
+let renderer_ready = false;
 
-app.on('ready', function()  {
-	autoUpdater.checkForUpdatesAndNotify();
+// Auto updater handling and signaling
+
+function sendStatusToWindow(statusmsg) {
+	if(renderer_ready) {
+		window.webContents.send('updater-status', statusmsg);
+	};
+}
+autoUpdater.on('checking-for-update', () => {
+	sendStatusToWindow('Checking for update...');
+})
+autoUpdater.on('update-available', (info) => {
+	sendStatusToWindow('Update available.');
+})
+autoUpdater.on('update-not-available', (info) => {
+	sendStatusToWindow('Update not available.');
+})
+autoUpdater.on('error', (err) => {
+	sendStatusToWindow('Error in auto-updater. ' + err);
+})
+autoUpdater.on('download-progress', (progressObj) => {
+	let log_message = "Download speed: " + formatSpeed(progressObj.bytesPerSecond);
+	log_message = log_message + ' - Downloaded ' + progressObj.percent.toFixed(2) + '%';
+	log_message = log_message + ' (' + formatSize(progressObj.transferred) + "/" + formatSize(progressObj.total) + ')';
+	sendStatusToWindow(log_message);
+})
+autoUpdater.on('update-downloaded', (info) => {
+	sendStatusToWindow('Update downloaded. Quit to let it install.');
 });
+
+// On ready
 
 app.on('ready', () => {
 	window = new BrowserWindow({
@@ -19,12 +47,15 @@ app.on('ready', () => {
 	});
 
 	window.loadFile('index.html');
-	window.openDevTools();
 
+	// window.openDevTools();
+
+	autoUpdater.checkForUpdatesAndNotify();
+
+	window.webContents.on('did-finish-load', () => {
+		window.webContents.send('version', {version: app.getVersion()});
+		renderer_ready = true;
+	})
 });
 
 Menu.setApplicationMenu(menu);
-
-ipcMain.on('version', function onversionrequest(event, arg) {
-	event.sender.send('version', {version: app.getVersion()});
-});

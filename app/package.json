@@ -1,12 +1,13 @@
 {
 	"name": "MyMarkdownEditor",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "A simple Markdown editor app to test multi-platform dev",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "DEBUG=true electron .",
-		"release": "electron-builder build --publish always"
+		"release": "electron-builder build --publish always",
+		"build:linux": "electron-builder build --linux"
 	},
 	"keywords": [],
 	"author": "Jeremy Fix",
