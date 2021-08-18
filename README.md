@@ -19,6 +19,10 @@ And then for the creation of the icns icon for MacOS, using [png2icns](https://w
 	for s in {16,32,48,128,256,512}; do convert icon.png -resize $sx$s icon_${s}px.png; done
 	png2icns icon.icns icon_*.png 
 
+For the creation of the Windows ico file: 
+
+	convert icon.png -define icon:auto-resize=16,32,48,64,256 icon.ico
+
 Let me tell you Open Source is fantastic.
 
 ## Testing the app

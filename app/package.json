@@ -1,6 +1,6 @@
 {
   "name": "MyMarkdownEditor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -25,17 +25,22 @@
   },
   "build": {
 	  "productName": "MyMarkdowneditor",
+	  "files": ["build/icons/icon*"],
 	  "mac": {
 		"category": "public.app-category.developer-tools",
 		"artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
-		"icon": "icons/icon.icns",
+		"icon": "build/icons/icon.icns",
 		"hardenedRuntime": true
+	  },
+	  "windows" : {
+		  "artifactName": "${productName}-${version}-${os}-${arch}.${ext}","
+		  "icon": "build/icons/icon.ico"
 	  },
 	  "linux": {
 		"target": "AppImage",
 		"artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
 		"category": "Utility",
-		"icon": "icons/icon.png"
+		"icon": "build/icons/icon.png"
 	  },
 	  "publish": {
 		"provider": "github",
