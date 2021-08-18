@@ -4,6 +4,23 @@ This is a test repository I used for experimenting the auto deployment of a basi
 
 Building of the app is done with the CI services integrated with github, especially Travis CI.
 
+## Licenses
+
+The icon `icons/markdown-brands.svg` is provided by [fontawesome.com](fontawesome.com) and is released under the [Creative Commons Attribution 4.0 International license](https://fontawesome.com/license).
+
+It has been then converted to png and icns for this demo application.
+
+For the creation of the png 1024x1024 icon using [imagemagick convert](https://imagemagick.org/index.php) :
+
+	convert markdown-brands.svg -resize x1024 -thumbnail '1024>x1024' -background white -gravity center -extent 1024x1024 icon.png
+
+And then for the creation of the icns icon for MacOS, using [png2icns](https://www.npmjs.com/package/png2icns) :
+
+	for s in {16,32,48,128,256,512}; do convert icon.png -resize $sx$s icon_${s}px.png; done
+	png2icns icon.icns icon_*.png 
+
+Let me tell you Open Source is fantastic.
+
 ## Testing the app
 
 For testing the app, you simply :

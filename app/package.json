@@ -25,10 +25,17 @@
   },
   "build": {
 	  "productName": "MyMarkdowneditor",
+	  "mac": {
+		"category": "public.app-category.developer-tools",
+		"artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+		"icon": "icons/icon.icns",
+		"hardenedRuntime": true
+	  },
 	  "linux": {
 		"target": "AppImage",
 		"artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
-		"category": "Utility" 
+		"category": "Utility",
+		"icon": "icons/icon.png"
 	  },
 	  "publish": {
 		"provider": "github",
