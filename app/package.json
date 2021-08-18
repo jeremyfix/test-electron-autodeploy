@@ -39,9 +39,14 @@
 		"win": {
 			"artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
 			"icon": "../build/icons/icon.ico",
-			"arch": [
-				"x64",
-				"ia32"
+			"target": [
+				{
+					"target": "nsis",
+					"arch": [
+						"x64",
+						"ia32"
+					]
+				}
 			]
 		},
 		"linux": {
