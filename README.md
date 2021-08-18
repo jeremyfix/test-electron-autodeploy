@@ -2,7 +2,9 @@
 
 This is a test repository I used for experimenting the auto deployment of a basic electron app to create, with electron-builder, the bundles for the different platforms (win32, macos, linux).
 
-Building of the app is done with the CI services integrated with github, especially Travis CI.
+Building of the app is done with the CI services integrated with github, especially github actions. I initially tried with travis CI but got issue having a working travis.yml config. I certainly more quickly found an appropriate github action workflow file than a travis file (in a word, this experience does not mean it cannot work with travis ... and to tell you the truth I struggled installing snapcraft for the linux packages but anyway disabled that build with electron-builder).
+
+For MacOS, the auto-update does not work. And, well, you must sign your app to make it work it seems and to sign an app you need a certificate from Apple, which, and that's unbelievable, requires you to pay fees. So if you want to provide a service to Mac users, you need to pay fees. Great.
 
 ## Licenses
 
@@ -52,9 +54,3 @@ For example, when ran on the mac os image, we get that kind of outputs :
 ./dist/mac/MyMarkdownEditor.app/Contents/MacOS
 [...]
 ```
-
-## My notes
-
-for publishing on github, I did generate a personnal access token that I registered in the settings of the repo on travis as `GH_TOKEN` env variable. This is detected by electron-builder and used to post the releases.
-
-see also https://medium.com/@johndyer24/creating-and-deploying-an-auto-updating-electron-app-for-mac-and-windows-using-electron-builder-6a3982c0cee6
