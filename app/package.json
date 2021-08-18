@@ -1,6 +1,6 @@
 {
 	"name": "MyMarkdownEditor",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "A simple Markdown editor app to test multi-platform dev",
 	"main": "index.js",
 	"scripts": {
@@ -38,7 +38,11 @@
 		},
 		"win": {
 			"artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
-			"icon": "../build/icons/icon.ico"
+			"icon": "../build/icons/icon.ico",
+			"arch": [
+				"x64",
+				"ia32"
+			]
 		},
 		"linux": {
 			"target": "AppImage",
