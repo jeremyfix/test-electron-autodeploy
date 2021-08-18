@@ -17,6 +17,9 @@
 		<h1>Editor</h1>
 
 		<textarea id="editor"></textarea>
+
+		We are running the application version <b id="app-version"></b>
+
 		<script>
 			let editor = new SimpleMDE({
 				element: document.getElementById("editor")
@@ -36,6 +39,12 @@ window.api.receive('editor-event', function onmessage(event, arg) {
 
 window.api.receive('load', function onload(event, arg) {
 	editor.value(arg);
+});
+
+window.api.send('version', '');
+window.api.receive('version', function onversion(event, arg) {
+	let element = document.getElementById("app-version");
+	element.innerHTML = arg.version;
 });
 		</script>
 	</body>

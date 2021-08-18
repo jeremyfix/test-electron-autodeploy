@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const menu = require('./menu');
 const path = require('path');
 const { autoUpdater } = require('electron-updater');
@@ -17,10 +17,14 @@ app.on('ready', () => {
 			preload: path.join(__dirname, 'preload.js')
 		}
 	});
+
 	window.loadFile('index.html');
 	window.openDevTools();
 
-	console.log(`Running version ${app.getVersion()}`);
 });
 
 Menu.setApplicationMenu(menu);
+
+ipcMain.on('version', function onversionrequest(event, arg) {
+	event.sender.send('version', {version: app.getVersion()});
+});
