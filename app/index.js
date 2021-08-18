@@ -7,6 +7,19 @@ let window;
 let renderer_ready = false;
 
 // Auto updater handling and signaling
+function formatSize(bytes) {
+	if(bytes <= 1e3) 
+		return bytes + " B";
+	else if(bytes <= 1e6) 
+		return (bytes / 1e3).toFixed(2) + " Kb";
+	else
+		return (bytes / 1e6).toFixed(2) + " Mb";
+}
+
+function formatSpeed(bpsecond) {
+	return formatSize(bpsecond) + "/s.";
+}
+
 
 function sendStatusToWindow(statusmsg) {
 	if(renderer_ready) {
@@ -25,6 +38,7 @@ autoUpdater.on('update-not-available', (info) => {
 autoUpdater.on('error', (err) => {
 	sendStatusToWindow('Error in auto-updater. ' + err);
 })
+
 autoUpdater.on('download-progress', (progressObj) => {
 	let log_message = "Download speed: " + formatSpeed(progressObj.bytesPerSecond);
 	log_message = log_message + ' - Downloaded ' + progressObj.percent.toFixed(2) + '%';
@@ -32,7 +46,7 @@ autoUpdater.on('download-progress', (progressObj) => {
 	sendStatusToWindow(log_message);
 })
 autoUpdater.on('update-downloaded', (info) => {
-	sendStatusToWindow('Update downloaded. Quit to let it install.');
+	sendStatusToWindow('Update downloaded. Quit the app to get the update automatically installed.');
 });
 
 // On ready
