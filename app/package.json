@@ -32,7 +32,7 @@
 		"icon": "build/icons/icon.icns",
 		"hardenedRuntime": true
 	  },
-	  "windows" : {
+	  "win" : {
 		  "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
 		  "icon": "build/icons/icon.ico"
 	  },
